@@ -1,12 +1,7 @@
-%vertical-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-%normal-center {
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+@mixin vl($height){
+    width: 2px;
+    background: $smooth;
+    height: $height;
+    margin: 5px 50%;
+    transform: translateX(-50%);
 }

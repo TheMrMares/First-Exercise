@@ -30,10 +30,7 @@ module.exports = {
     },
     plugins: [
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-            'window.$': 'jquery'
+            
         }),
         new webpack.DefinePlugin({
             IS_DEV: IS_DEV
@@ -116,7 +113,7 @@ module.exports = {
             },
             // IMAGES
             {
-                test: /\.(jpe?g|png|gif|mp4|mp3|ttf)$/,
+                test: /\.(jpe?g|png|gif|mp4|mp3|ttf|svg)$/,
                 loader: 'file-loader',
                 options: {
                     name: '[path][name].[ext]'

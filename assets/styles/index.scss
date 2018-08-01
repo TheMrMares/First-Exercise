@@ -1,3 +1,97 @@
 @import 'templates.scss';
 @import 'variables.scss';
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.area {
+    border: 1px solid red;
+    
+}
+.area--about {
+
+}
+.area--booking {
+    background: url('./../images/booking_bg.png');
+}
+.article {
+    border: 1px solid green;
+    width: 75%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+}
+.article__header, .article__body {
+    border: 2px solid blue;
+    display: flex;
+}
+.article__body {
+}
+.article__aside {
+    flex: 0 0 4%;
+    border: 1px solid pink;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.icon {
+    border: 1px solid red;
+    text-align: center;
+}
+.preLine {
+    @include vl(100px);
+}
+.endLine {
+    @include vl(200px);
+}
+.article__content {
+    flex: 0 0 96%;
+    border: 1px solid pink;
+    padding: 20px;
+}
+.text--heavy{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.text--light {
+
+}
+.title {
+    position: relative;
+    letter-spacing: 1px;
+    font-size: 1.7em;
+    &::after {
+        position: absolute;
+        content: "";
+        height: 2px;
+        left: 100%;
+        margin-left: 10px;
+        width: 200px;
+        top: 50%;
+        transform:  translateY(-50%);
+    }
+}
+.title--dark {
+    color: $dark;
+    &::after {
+        background: $special;;
+    }
+}
+.title--fair {
+    color: $fair;
+    &::after {
+        background: $fair;
+    }
+}
