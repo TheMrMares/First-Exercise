@@ -5,12 +5,10 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 img {
     position: relative;
     max-width: 100%;
@@ -20,11 +18,23 @@ body {
     display: flex;
     flex-direction: column;
 }
-
-.area {
-    
+input, button {
+    font-family: Arial, Helvetica, sans-serif !important;
 }
-.area--about {
+.icon {
+    text-align: center;
+}
+.preLine {
+    @include vl(100px);
+}
+.endLine {
+    @include vl(200px);
+}
+.text--big {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.text--small {
 
 }
 .area--booking {
@@ -48,33 +58,22 @@ body {
     display: flex;
     flex-direction: column;
 }
-.icon {
-    text-align: center;
-}
-.preLine {
-    @include vl(100px);
-}
-.endLine {
-    @include vl(200px);
-}
 .article__content {
     flex: 0 0 97%;
     padding: 20px;
     flex-wrap: wrap;
     text-align: justify;
     text-align-last: left;
+    display: flex;
+    justify-content: space-around;
 }
-.text--big {
-    font-weight: bold;
-    font-size: 1.1em;
-}
-.text--small {
-
+.article__image {
+    margin: 20px 0px;
 }
 .addition {
     float: right;
     width: 200px;
-    margin: 15px -100px 15px 15px;
+    margin: 15px -100px 0px 15px;
     display: flex;
     flex-direction: column;
 }
@@ -101,7 +100,8 @@ body {
 .note {
     position: absolute;
     left: 100%;
-    width: 100px;
+    width: 170px;
+    text-align: left;
 }
 .title {
     position: relative;
@@ -129,4 +129,51 @@ body {
     &::after {
         background: $fair;
     }
+}
+.calendar, .form {
+flex: 0 0 48%;
+border-radius: 15px;
+border: 1px solid $smooth;
+}
+.calendar {
+}
+.form {
+    min-height: 300px;
+    background: $fair;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    flex-direction: column;
+    >  * {
+        width: 70%;
+        margin: 20px auto;
+    }
+    
+}
+.form__email, .form__select, .form__submit {
+    padding: 10px;
+    font-weight: bold;
+    -webkit-appearance:  none;
+    -moz-appearance:  none;
+    -o-appearance:  none;
+    appearance: none;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background: $smoothspecial;
+}
+.form__select {
+    width: 100%;
+    background: $smoothspecial url('./../images/arrows.png') no-repeat scroll 96% center;
+    background-size: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.form__submit {
+    background: $special;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: $fair;
+    text-transform: uppercase;
 }
