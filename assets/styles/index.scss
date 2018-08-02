@@ -168,6 +168,11 @@ border-radius: 15px;
         display: flex;
         justify-content: center;
         align-items: center;
+        .calendar__display {
+            width: 24%;
+            display: flex;
+            justify-content: center;
+        }
         .calendar__button {
             background: none;
             color: $fair;
@@ -216,7 +221,11 @@ border-radius: 15px;
         .calendar__day--active {
             > div {
                 background: $special;
+                &:hover {
+                    background: $special !important;
+                }
             }
+            
         }
         .calendar__day--blocked {
             &::before {
@@ -245,7 +254,6 @@ border-radius: 15px;
     flex-direction: column;
     >  * {
         width: 70%;
-        margin: 20px auto;
     }
     
 }
@@ -269,4 +277,8 @@ border-radius: 15px;
     justify-content: center;
     color: $fair;
     text-transform: uppercase;
+    margin: 30px auto 10px auto;
+}
+.form__email, .form__select--wrapper {
+    margin: 10px auto;
 }
