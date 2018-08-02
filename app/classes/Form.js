@@ -46,6 +46,7 @@ export class Form {
     submit(){
 
         if(!this.emailState){
+            console.log('Use valid email adress!');
             return;
         }
         let cl = this.calendar;

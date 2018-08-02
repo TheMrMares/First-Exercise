@@ -133,7 +133,19 @@ export class Calendar {
         });
         this.days.forEach((item, index) => {
             item.addEventListener('click', (e) => {
-                if(!e.target.parentElement.classList.contains('calendar__day--unavailable') && !e.target.parentElement.classList.contains('calendar__day--blocked')) {
+                console.log(e.target.tagName);
+                let condition;
+                switch(e.target.tagName){
+                    case 'DIV':
+                        condition = (!e.target.parentElement.classList.contains('calendar__day--unavailable') && !e.target.parentElement.classList.contains('calendar__day--blocked'));
+                    break;
+                    case 'BUTTON':
+                        condition = (!e.target.classList.contains('calendar__day--unavailable') && !e.target.classList.contains('calendar__day--blocked'));
+                    break;
+                    default:
+                    break;
+                }
+                if(condition) {
                     console.log(parseInt(e.target.textContent)-1);
                     this.activeD = parseInt(e.target.textContent)-1;
                     this.chosenY = this.activeY;
@@ -180,6 +192,16 @@ export class Calendar {
             if(index > ourMonth.numDays+ourMonth.start-2){
                 properElem.textContent = index-(ourMonth.numDays+ourMonth.start-2);
                 item.classList.add('calendar__day--unavailable');
+            }
+            let today = new Date();
+            if(this.activeY <= today.getFullYear()-2016){
+                if(this.activeM < today.getMonth()){
+                    item.classList.add('calendar__day--unavailable');
+                } else if(this.activeM >= today.getMonth()) {
+                    if(index < ourMonth.start-1 + today.getDate()-1){
+                        item.classList.add('calendar__day--unavailable');
+                    }
+                }
             }
         });
 
