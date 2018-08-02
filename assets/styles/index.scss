@@ -18,8 +18,14 @@ body {
     display: flex;
     flex-direction: column;
 }
-input, button {
+input, button, select {
     font-family: Arial, Helvetica, sans-serif !important;
+    -webkit-appearance:  none;
+    -moz-appearance:  none;
+    -o-appearance:  none;
+    appearance: none;
+    border: none;
+    outline: none;
 }
 .icon {
     text-align: center;
@@ -106,8 +112,8 @@ input, button {
     font-family: none !important;
 }
 .note__image {
-    width: 15px;
-    margin: 0px 10px 0px -25px;
+    width: 10px;
+    margin: 0px 20px 0px -35px;
 }
 .title {
     position: relative;
@@ -139,9 +145,93 @@ input, button {
 .calendar, .form {
 flex: 0 0 48%;
 border-radius: 15px;
-border: 1px solid $smooth;
 }
 .calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    .calendar__real {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        color: $fair;
+        position: relative;
+    }
+    .calendar__navigation, .calendar__header, .calendar__body{
+        display: flex;
+        justify-content: center;
+    }
+    .calendar__navigation{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .calendar__button {
+            background: none;
+            color: $fair;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            margin: 0px 10px;
+            &:hover {
+                background: rgba(0,0,0,0.2);
+            }
+        }
+    }
+    .calendar__header{
+        > div {
+            display: flex;
+            justify-content: center;
+            width: (100%/7);
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+    }
+    .calendar__body {
+        flex-wrap: wrap;
+        display: flex;
+        .calendar__day {
+            position: relative;
+            color: $fair;
+            background: none;
+            display: flex;
+            justify-content: center;
+            width: (100%/7);
+            padding: 3px;
+            > div {
+                width: 25px;
+                height: 25px;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:hover {
+                    background: rgba(0,0,0,0.2);
+                }
+            }
+        }
+        .calendar__day--active {
+            > div {
+                background: $special;
+            }
+        }
+        .calendar__day--blocked {
+            &::before {
+                width: 4px;
+                height: 4px;
+                content: "";
+                top: 2px;
+                right: 10px;
+                border: 1px solid $fair;
+                background: $special;
+                position: absolute;
+                border-radius: 100%;
+            }
+        }
+    }
 }
 .form {
     min-height: 300px;
@@ -159,12 +249,6 @@ border: 1px solid $smooth;
 .form__email, .form__select, .form__submit {
     padding: 10px;
     font-weight: bold;
-    -webkit-appearance:  none;
-    -moz-appearance:  none;
-    -o-appearance:  none;
-    appearance: none;
-    border: none;
-    outline: none;
     border-radius: 15px;
     background: $smoothspecial;
 }
