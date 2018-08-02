@@ -208,14 +208,16 @@ input, button, select {
 }
 .area {
     padding: 0px;
+}
+.area--about {
     @media screen and (max-width: $rwdBig) {
-        padding: 40px 0px;
+        padding-bottom: 40px;
     }
     @media screen and (max-width: $rwdMedium) {
-        padding: 80px 0px;
+        padding-bottom: 80px;
     }
     @media screen and (max-width: $rwdSmall) {
-        padding: 120px 0px;
+        padding-bottom: 120px;
     }
 }
 .area--booking .article__content {
@@ -338,6 +340,9 @@ border-radius: 15px;
     flex-direction: column;
     >  * {
         width: 70%;
+    }
+    @media screen and (max-width: $rwdSmall) {
+        margin-top: 20px;
     }
     
 }
