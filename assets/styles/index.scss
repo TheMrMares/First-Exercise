@@ -100,8 +100,14 @@ input, button {
 .note {
     position: absolute;
     left: 100%;
+    margin-left: 50px;
     width: 170px;
     text-align: left;
+    font-family: none !important;
+}
+.note__image {
+    width: 15px;
+    margin: 0px 10px 0px -25px;
 }
 .title {
     position: relative;

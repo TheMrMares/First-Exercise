@@ -6,7 +6,11 @@ import 'images/twitter_grey.svg';
 import 'images/insta_grey.svg';
 import 'images/foto1.png';
 import 'images/arrows.png';
+import triangleURL from 'images/Triangle.png';
 
 import {SelectConnector} from './classes/SelectConnector';
+import {NoteArrows} from './classes/NoteArrows';
 
 let formSelect = new SelectConnector({send: document.querySelector('#formSelectInput'), receive: document.querySelector('#formSelectOutput')});
+
+let noteImages = new NoteArrows({objects: document.querySelectorAll('.note'),imageURL: triangleURL});
