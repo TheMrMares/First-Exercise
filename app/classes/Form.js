@@ -49,7 +49,7 @@ export class Form {
             return;
         }
         let cl = this.calendar;
-        let selectedDate = `year: ${cl.timeline.years[cl.activeY].name} / month: ${cl.activeM+1} / day: ${cl.activeD+1}`;
+        let selectedDate = `year: ${cl.timeline.years[cl.chosenY].name} / month: ${cl.chosenM+1} / day: ${cl.chosenD+1}`;
 
         let formDATA = {
             email: this.emailObj.value,

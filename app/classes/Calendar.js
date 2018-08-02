@@ -120,9 +120,6 @@ export class Calendar {
                     this.activeM--;
                 }
             }
-            if(this.activeD+1 > this.timeline.years[this.activeY].months[this.activeM].numDays){
-                this.activeD = this.timeline.years[this.activeY].months[this.activeM].numDays-1
-            }
             this.refreshCalendar();
         });
         this.next.addEventListener('click', () => {
@@ -139,6 +136,9 @@ export class Calendar {
                 if(!e.target.parentElement.classList.contains('calendar__day--unavailable') && !e.target.parentElement.classList.contains('calendar__day--blocked')) {
                     console.log(parseInt(e.target.textContent)-1);
                     this.activeD = parseInt(e.target.textContent)-1;
+                    this.chosenY = this.activeY;
+                    this.chosenM = this.activeM;
+                    this.chosenD = this.activeD;
                     this.refreshCalendar();
                 }
             });
@@ -150,6 +150,9 @@ export class Calendar {
         this.activeY = today.getFullYear()-2016;
         this.activeM = today.getMonth();
         this.activeD = today.getDate()-1;
+        this.chosenY = this.activeY;
+        this.chosenM = this.activeM;
+        this.chosenD = this.activeD;
     }
     refreshCalendar(){
         let ourYear = this.timeline.years[this.activeY];
@@ -182,7 +185,7 @@ export class Calendar {
 
         for(let i = 0; i<ourMonth.numDays; i++){
             this.days[i+ourMonth.start-1].querySelector('div').textContent = i+1;
-            if(i == this.activeD){
+            if(i == this.chosenD && this.chosenM === this.activeM && this.chosenY === this.activeY){
                 this.days[i+ourMonth.start-1].classList.add('calendar__day--active');
             }
             if(this.timeline.years[this.activeY].months[this.activeM].days[i].blocked === true){
