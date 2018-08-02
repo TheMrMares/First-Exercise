@@ -137,7 +137,8 @@ export class Calendar {
         this.days.forEach((item, index) => {
             item.addEventListener('click', (e) => {
                 if(!e.target.parentElement.classList.contains('calendar__day--unavailable') && !e.target.parentElement.classList.contains('calendar__day--blocked')) {
-                    this.activeD = e.target.parentElement.getAttribute('cal-D');
+                    console.log(parseInt(e.target.textContent)-1);
+                    this.activeD = parseInt(e.target.textContent)-1;
                     this.refreshCalendar();
                 }
             });
@@ -187,9 +188,6 @@ export class Calendar {
             if(this.timeline.years[this.activeY].months[this.activeM].days[i].blocked === true){
                 this.days[i+ourMonth.start-1].classList.add('calendar__day--blocked');
             }
-            this.days[i+ourMonth.start-1].setAttribute('cal-Y',this.activeY);
-            this.days[i+ourMonth.start-1].setAttribute('cal-M',this.activeM);
-            this.days[i+ourMonth.start-1].setAttribute('cal-D',i);
         }
     }
 }

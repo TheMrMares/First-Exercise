@@ -30,8 +30,33 @@ export class Form {
         this.submitObj.addEventListener('click', () => {
             this.submit();
         });
+        this.emailObj.addEventListener('input', () => {
+            this.checkEmail();
+        })
+    }
+    checkEmail(){
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let email = this.emailObj.value;
+        if(reg.test(email)){
+            this.emailState = true;
+        } else {
+            this.emailState = false;
+        }
     }
     submit(){
-        console.log('submit');
+
+        if(!this.emailState){
+            return;
+        }
+        let cl = this.calendar;
+        let selectedDate = `year: ${cl.timeline.years[cl.activeY].name} / month: ${cl.activeM+1} / day: ${cl.activeD+1}`;
+
+        let formDATA = {
+            email: this.emailObj.value,
+            selectOne: this.selectInputObj.value,
+            selectTwo: this.selectOutputObj.value,
+            date: selectedDate
+        }
+        console.log(formDATA);
     }
 }
