@@ -4,6 +4,10 @@ export class Calendar {
         this.availableDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         this.calendar = calendar; 
 
+
+        this.elemsD = calendar.querySelectorAll('.calendar__day');
+        this.display = calendar.querySelector('.calendar__display');
+
         //START of TIMELINE
         this.timeline = {
             years: []
@@ -28,10 +32,18 @@ export class Calendar {
             for(let j=0; j<12; j++){
                 let numberOfDays;
                 let compensate = 2;
-                if((j+1)%2 === 0) {
-                    numberOfDays = 30;
+                if(j<=6){
+                    if((j+1)%2 === 0) {
+                        numberOfDays = 30;
+                    } else {
+                        numberOfDays = 31;
+                    }
                 } else {
-                    numberOfDays = 31;
+                    if((j+1)%2 === 0) {
+                        numberOfDays = 31;
+                    } else {
+                        numberOfDays = 30;
+                    }
                 }
                 if(j == 1){
                     numberOfDays  -= compensate
@@ -39,6 +51,7 @@ export class Calendar {
                         numberOfDays++;
                     }
                 }
+                
                 let dayStart;
                 let dayRest;
                 if(i === 0 && j === 0){
@@ -65,11 +78,11 @@ export class Calendar {
                 //days
                 let counter = this.timeline.years[i].months[j].start-1;
                 //console.log(counter);
-                for(let k=this.timeline.years[i].months[j].start; k<this.timeline.years[i].months[j].numDays; k++){
+                for(let k=0; k<this.timeline.years[i].months[j].numDays; k++){
                     
                     this.timeline.years[i].months[j].days.push({
                         name: this.availableDays[counter],
-                        realPos: k
+                        realPos: this.timeline.years[i].months[j].start+k
                     });
                     counter++;
                     if(counter >= 7) {
@@ -80,5 +93,18 @@ export class Calendar {
         }
         console.log(this.timeline);
         //END of TIMELINE
+
+        let today = new Date();
+        this.activeDate = today;
+        this.activeY = today.getFullYear()-2016;
+        this.activeM = today.getMonth();
+        this.activeD = today.getDate();
+        console.log(this.timeline.years);
+        this.refreshCalendar();
+    }
+    refreshCalendar(){
+        let ourYear = this.timeline.years[this.activeY];
+        let ourMonth = ourYear.months[this.activeM];
+        let ourDay = ourMonth.days[this.activeD-1];
     }
 }

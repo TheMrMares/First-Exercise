@@ -231,6 +231,9 @@ border-radius: 15px;
                 border-radius: 100%;
             }
         }
+        .calendar__day--unavailable {
+            color: $smooth !important;
+        }
     }
 }
 .form {
