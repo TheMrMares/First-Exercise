@@ -6,7 +6,7 @@ export class NoteArrows {
     }
     addArrows(){
         this.objects.forEach((item, index) => {
-            item.insertAdjacentHTML('afterbegin', `<img  src=${this.imageURL} class="note__image"/>`)
+            item.insertAdjacentHTML('afterbegin', `<img  src=${this.imageURL} class="note__image" alt="Graphic of blue arrow, it points article."/>`)
         });
     }
 }

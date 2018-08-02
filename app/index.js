@@ -5,8 +5,8 @@ import 'images/fb_grey.svg';
 import 'images/twitter_grey.svg';
 import 'images/insta_grey.svg';
 import 'images/foto1.png';
-import 'images/arrows.png';
-import triangleURL from 'images/Triangle.png';
+import 'images/arrows.svg';
+import triangleURL from 'images/Triangle.svg';
 
 import {SelectConnector} from './classes/SelectConnector';
 import {NoteArrows} from './classes/NoteArrows';
