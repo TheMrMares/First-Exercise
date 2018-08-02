@@ -4,6 +4,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 * {
     box-sizing: border-box;
@@ -29,6 +30,14 @@ input, button, select {
 }
 .icon {
     text-align: center;
+    @media screen and (max-width: $rwdSmall) {
+        margin: 5px 20px;
+    }
+}
+.preLine, .endLine {
+    @media screen and (max-width: $rwdSmall) {
+        display: none;
+    }
 }
 .preLine {
     @include vl(100px);
@@ -45,9 +54,26 @@ input, button, select {
 }
 .area--booking {
     background: url('./../images/booking_bg.png');
+    @media screen and (max-width: $rwdMedium) {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    @media screen and (max-width: $rwdSmall) {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 .article {
     width: 45%;
+    @media screen and (max-width: $rwdBig) {
+        width: 60%;
+    }
+    @media screen and (max-width: $rwdMedium) {
+        width: 80%;
+    }
+    @media screen and (max-width: $rwdSmall) {
+        width: 100%;
+    }
     margin: 40px auto;
     display: flex;
     flex-direction: column;
@@ -58,11 +84,24 @@ input, button, select {
 .article__body {
     line-height: 1.5em;
     position: relative;
+    @media screen and (max-width: $rwdSmall) {
+        flex-direction: column;
+    }
 }
 .article__aside {
     flex: 0 0 3%;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: $rwdSmall) {
+        display: none;
+    }
+}
+.article__aside--media {
+    @media screen and (max-width: $rwdSmall) {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
 }
 .article__content {
     flex: 0 0 97%;
@@ -82,6 +121,10 @@ input, button, select {
     margin: 15px -100px 0px 15px;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: $rwdBig) {
+        width:100%;
+        margin: 20px auto;
+    }
 }
 .addition__title {
     position: relative;
@@ -106,19 +149,40 @@ input, button, select {
 .note {
     position: absolute;
     left: 100%;
+    width: 20%;
     margin-left: 50px;
-    width: 170px;
     text-align: left;
     font-family: none !important;
+    box-sizing: border-box;
+    font-weight: bold;
+    @media screen and (max-width: $rwdBig) {
+        margin: auto;
+        left: 40px;
+        top: 100%;
+        width: -webkit-calc(100% - 60px);
+        width: -moz-calc(100% - 60px);
+        width: calc(100% - 60px);
+        border-top: 2px solid $smooth;
+        padding: 20px 0px 10px 20px;
+    }
 }
 .note__image {
     width: 10px;
-    margin: 0px 20px 0px -35px;
+    position: absolute;
+    left: -25px;
+    @media screen and (max-width: $rwdBig) {
+        left: 0px;
+        top: 25px;
+        transform: rotate(90deg);
+    }
 }
 .title {
     position: relative;
     letter-spacing: 1px;
     font-size: 1.7em;
+    @media screen and (max-width: $rwdSmall) {
+        padding-left: 20px;
+    }
     &::after {
         position: absolute;
         content: "";
@@ -142,6 +206,26 @@ input, button, select {
         background: $fair;
     }
 }
+.area {
+    padding: 0px;
+    @media screen and (max-width: $rwdBig) {
+        padding: 40px 0px;
+    }
+    @media screen and (max-width: $rwdMedium) {
+        padding: 80px 0px;
+    }
+    @media screen and (max-width: $rwdSmall) {
+        padding: 120px 0px;
+    }
+}
+.area--booking .article__content {
+    @media screen and (max-width: $rwdMedium) {
+        flex-direction: column
+    }
+    @media screen and (max-width: $rwdSmall) {
+        flex-direction: column;
+    }
+} 
 .calendar, .form {
 flex: 0 0 48%;
 border-radius: 15px;
