@@ -319,11 +319,20 @@ border-radius: 15px;
                 height: 4px;
                 content: "";
                 top: 2px;
-                right: 10px;
+                right: 20%;
                 border: 1px solid $fair;
                 background: $special;
                 position: absolute;
                 border-radius: 100%;
+                @media screen and (max-width: $rwdBig) {
+                    right: 10%;
+                }
+                @media screen and (max-width: $rwdMedium) {
+                    right: 30%;
+                }
+                @media screen and (max-width: $rwdSmall) {
+                    right: 20%;
+                }
             }
         }
         .calendar__day--unavailable {
