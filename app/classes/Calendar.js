@@ -194,14 +194,16 @@ export class Calendar {
                 item.classList.add('calendar__day--unavailable');
             }
             let today = new Date();
-            if(this.activeY <= today.getFullYear()-2016){
-                if(this.activeM < today.getMonth()){
-                    item.classList.add('calendar__day--unavailable');
-                } else if(this.activeM >= today.getMonth()) {
+            if(this.activeY >= today.getFullYear()-2016){
+                if(this.activeM >= today.getMonth()){
                     if(index < ourMonth.start-1 + today.getDate()-1){
                         item.classList.add('calendar__day--unavailable');
                     }
+                } else {
+                    item.classList.add('calendar__day--unavailable');
                 }
+            } else {
+                item.classList.add('calendar__day--unavailable');
             }
         });
 
